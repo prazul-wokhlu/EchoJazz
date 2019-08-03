@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe02ce0e-4a30-4d7c-9558-8aabb712d146" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GettingChordsTest.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/GettingChordsTest.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/improv_rnn/generate_music.py" beforeDir="false" afterPath="$PROJECT_DIR$/improv_rnn/generate_music.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/midis_for_songs/All_The_Things_You_Are_k1_Ab_maj (1).mid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/midis_for_songs/Fly_Me_To_The_Moon_in_4.mscz.mid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/song_chords.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/improv_rnn/song_chords.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/improv_rnn/song_midis.pkl" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/improv_rnn/generate_music.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="87" selection-start-line="14" selection-start-column="87" selection-end-line="14" selection-end-column="87" />
+            <state relative-caret-position="170">
+              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -106,11 +101,18 @@
       <option name="presentableId" value="Default" />
       <updated>1564806701001</updated>
     </task>
+    <task id="LOCAL-00001" summary="generate song ADDED!!! :)">
+      <created>1564808872519</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1564808872520</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -131,11 +133,15 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="generate song ADDED!!! :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="generate song ADDED!!! :)" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/improv_rnn/generate_music.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="87" selection-start-line="14" selection-start-column="87" selection-end-line="14" selection-end-column="87" />
+        <state relative-caret-position="170">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
