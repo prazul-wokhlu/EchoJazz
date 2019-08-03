@@ -14,7 +14,19 @@ from midi import play_audio
 from create_playlist import create_pl, add_to_pl
 import subprocess
 import os.path
-import generate_music
+
+
+
+os.system("!improv_rnn_generate \
+--config=chord_pitches_improv \
+--run_dir='/content/drive/My Drive/Colab Notebooks/acode/randommusic/run_dir' \
+--output_dir='/content/drive/My Drive/Colab Notebooks/acode/randommusic/outputs/output.mid' \
+--num_outputs=1 \
+--primer_melody='[57]' \
+--backing_chords='Am7 Am7 Dm7 Dm7 Bdim7 E7b9 Am7 Am7 Cm7 F7 Bb Bb Bdim7 E7b9 Am7 Bdim7' \
+--hparams='batch_size=128,rnn_layer_sizes=[128,128]' \
+--render_chords")
+####?????subprocess.call()
 
 with open("playlist_names.pkl", mode="rb") as opened_file:
     database = pickle.load(opened_file)
@@ -46,7 +58,6 @@ def add_intent():
     #takes picture to return name, descriptor
     name, desc = main(database)
     path = './playlists/{}/'.format(name)
-    ###update- song_folder=generate jazz
     play_audio(midi_file)
 ###STOPPED HERE
     if "Unknown" not in name:
@@ -65,7 +76,7 @@ def add_intent():
 @ask.intent("YesIntent")
 def yes_intent():
     global dbname
-    global song_folder
+    global midi_file
     path = './playlist/{}/'.format(dbname)
     # add numbered folder with midi in playlist
     add_to_pl(path, midi_file)
@@ -102,9 +113,8 @@ def play_intent(name, song_number):
 
 
 @ask.intent("DisplayIntent")
-def display_intent(playlist, song_number):
-    global dbname
-    path = './playlists/{}/'.format(dbname)
+def display_intent(name, song_number):
+    path = './playlists/{}/'.format(name)
     allmidis = os.listdir(path)
     with open(path + '{}'.format(allmidis[song_number-1]), mode="rb") as f:
         c = converter.parse(f)
