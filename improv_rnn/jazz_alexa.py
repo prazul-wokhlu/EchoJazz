@@ -22,7 +22,7 @@ with open("playlist_names.pkl", mode="rb") as opened_file:
 desc=None
 dbName=None
 #generate song, set to variable midi file
-midi_file=None
+generatedsong_filepath=None
 
 
 
@@ -65,10 +65,10 @@ def add_intent():
 @ask.intent("YesIntent")
 def yes_intent():
     global dbname
-    global midi_file
+    global generatedsong_filepath
     path = './playlist/{}/'.format(dbname)
     # add numbered folder with midi in playlist
-    add_to_pl(path, midi_file)
+    add_to_pl(path, generatedsong_filepath)
     return question(dbname+", your song has been added. Would you like to do anything else?")
 
 
@@ -119,6 +119,7 @@ def no_intent():
 
 @ask.intent("ImprovIntent")
 def improv_intent(songname):
+    global generatedsong_filepath
     #path = r'C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\improvised_song\{}'.format(name)
     path = r'./improvised_song/{}/'.format(songname.lower())
 
