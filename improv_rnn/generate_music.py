@@ -18,7 +18,8 @@ def generate_real(songname,filepath):
 
 
 def generate_test(songname,filepath):
-    subprocess.call(['improv_rnn_generate', '--config=chord_pitches','--bundle_file=${BUNDLE_PATH}',
+    subprocess.call(['improv_rnn_generate', '--config=chord_pitches',
+                     r'--bundle_file=C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\chord_pitches_improv.mag',
                      '--output_dir={}'.format(filepath), '--num_outputs=1', '--primer_midi={}'.format(song_midis[songname]),
                      '--backing_chords={}'.format(song_chords[songname]*num_choruses), '--render_chords'])
 
