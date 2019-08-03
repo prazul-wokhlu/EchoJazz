@@ -18,11 +18,7 @@ def improv_rnn_generate(songname,filepath):
 
 
 def generate_test(songname,filepath):
-    subprocess.call(['improv_rnn_generate', ''--config=chord_pitches  \
---bundle_file=${BUNDLE_PATH} \
---output_dir=/tmp/improv_rnn/generated \
---num_outputs=10 \
---primer_melody="[60]" \
---backing_chords="C G Am F C G Am F" \
---render_chords])
+    subprocess.call(['improv_rnn_generate', '--config=chord_pitches','--bundle_file=${BUNDLE_PATH}',
+                     '--output_dir={}'.format(filepath), '--num_outputs=1', '--primer_midi={}'.format(song_midis[songname]),
+                     '--backing_chords={}'.format(song_chords[songname]*num_choruses), '--render_chords'])
 
