@@ -15,6 +15,7 @@ from create_playlist import create_pl, add_to_pl
 import subprocess
 import os.path
 from generate_music import *
+from threading import Thread
 
 with open("playlist_names.pkl", mode="rb") as opened_file:
     database = pickle.load(opened_file)
@@ -46,7 +47,7 @@ def add_intent():
     #takes picture to return name, descriptor
     name, desc = main(database)
     path = './playlists/{}/'.format(name)
-    play_audio(midi_file)
+    play_music(midi_file)
 ###STOPPED HERE
     if "Unknown" not in name:
         face_msg = 'Hello {}'.format(name)
@@ -92,10 +93,10 @@ def assign_name(name,uk,german,cogworks):
     return question(face_msg + ". Do you want to add the song to your playlist?")
 
 @ask.intent("PlayIntent")
-def play_intent(name, song_number):
+def play_intent(name, number):
     path = './playlists/{}/'.format(name)
     allmidis=os.listdir(path)
-    with open(path+'{}'.format(allmidis[song_number-1]),mode="rb") as f:
+    with open(path+'{}'.format(allmidis[number-1]),mode="rb") as f:
         play_audio(f)
     return question("Would you like to do anything else?")
 
@@ -119,12 +120,13 @@ def no_intent():
 @ask.intent("ImprovIntent")
 def improv_intent(songname):
     #path = r'C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\improvised_song\{}'.format(name)
-    path = r'./improvised_song/{}/'.format(songname)
+    path = r'./improvised_song/{}/'.format(songname.lower())
 
     generate_test(songname, path)
 
     all_improv = os.listdir(path)
-    play_audio(all_improv[len(all_improv)-1])
+    generatedsong_filepath=path+all_improv[len(all_improv)-1]
+    play_music(generatedsong_filepath)
     return question("Would you like to navigate to your playlist? Say 'add'")
 
 
