@@ -82,7 +82,7 @@ tf.app.flags.DEFINE_boolean(
     'If true, the backing chords will also be rendered as notes in the output '
     'MIDI files.')
 tf.app.flags.DEFINE_float(
-    'qpm', None,
+    'qpm', 200,
     'The quarters per minute to play generated output at. If a primer MIDI is '
     'given, the qpm from that will override this flag. If qpm is None, qpm '
     'will default to 120.')

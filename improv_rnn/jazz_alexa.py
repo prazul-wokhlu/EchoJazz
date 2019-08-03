@@ -33,7 +33,7 @@ def homepage():
 
 @ask.launch
 def start_skill():
-    welcome_message = 'Hi! Would you like to generate, play, or display a song?'
+    welcome_message = 'Hi! Would you like to generate or play a song?'
     download_model()
     download_predictor()
     load_dlib_models()
@@ -47,7 +47,7 @@ def add_intent():
     #takes picture to return name, descriptor
     name, desc = main(database)
     path = './playlists/{}/'.format(name)
-    #play_music(midi_file)
+    play_audio(midi_file)
 ###STOPPED HERE
     if "Unknown" not in name:
         face_msg = 'Hello {}'.format(name)
@@ -93,19 +93,19 @@ def assign_name(name,uk,german,cogworks):
     return question(face_msg + ". Do you want to add the song to your playlist?")
 
 @ask.intent("PlayIntent")
-def play_intent(name, number):
+def play_intent(name, song_number):
     path = './playlists/{}/'.format(name)
     allmidis=os.listdir(path)
-    with open(path+'{}'.format(allmidis[number-1]),mode="rb") as f:
-        play_music(f)
+    with open(path+'{}'.format(allmidis[song_number-1]),mode="rb") as f:
+        play_audio(f)
     return question("Would you like to do anything else?")
 
 
 @ask.intent("DisplayIntent")
-def display_intent(name, number):
+def display_intent(name, song_number):
     path = './playlists/{}/'.format(name)
     allmidis = os.listdir(path)
-    with open(path + '{}'.format(allmidis[number-1]), mode="rb") as f:
+    with open(path + '{}'.format(allmidis[song_number-1]), mode="rb") as f:
         c = converter.parse(f)
         c.show('musicxml.png')
     return question("Would you like to do anything else?")
@@ -133,3 +133,5 @@ def improv_intent(songname):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
