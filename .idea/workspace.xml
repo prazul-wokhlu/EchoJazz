@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe02ce0e-4a30-4d7c-9558-8aabb712d146" name="Default Changelist" comment="consolidated everything into improvrnn">
+    <list default="true" id="fe02ce0e-4a30-4d7c-9558-8aabb712d146" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/improv_rnn/generate_music.py" beforeDir="false" afterPath="$PROJECT_DIR$/improv_rnn/generate_music.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/improv_rnn/main_files/GettingChordsTest.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/improv_rnn/main_files/Playlist_dict.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/improv_rnn/main_files/create_playlist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/improv_rnn/main_files/jazz_alexa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/improv_rnn/main_files/main_copy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/improv_rnn/main_files/match_copy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/improv_rnn/main_files/playlist_names.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/improv_rnn/main_files/portfolio_methods_copy.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,13 +19,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="JazzImprov" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/improv_rnn/generate_music.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="69" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
+            <state relative-caret-position="170">
+              <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -25,10 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/improv_rnn/main_files/jazz_alexa.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/improv_rnn/jazz_alexa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="170">
+              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -53,6 +65,7 @@
       <list>
         <option value="$PROJECT_DIR$/jazz_alexa.py" />
         <option value="$PROJECT_DIR$/improv_rnn/generate_music.py" />
+        <option value="$PROJECT_DIR$/improv_rnn/main_files/jazz_alexa.py" />
       </list>
     </option>
   </component>
@@ -99,6 +112,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\main_files" />
       <recent name="C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn" />
     </key>
   </component>
@@ -160,17 +174,38 @@
       <option name="project" value="LOCAL" />
       <updated>1564843648487</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="consolidated everything into improvrnn">
+      <created>1564844219618</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1564844219618</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test generate music done">
+      <created>1564845190804</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1564845190804</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added chord pitches bundle file for testing">
+      <created>1564845447042</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1564845447042</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.25" />
+      <window_info id="Favorites" order="1" sideWeight="0.5008183" side_tool="true" weight="0.25" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -191,7 +226,9 @@
     <MESSAGE value="added song_midis, but will change per computer. use notebook to remake midi dict" />
     <MESSAGE value="added all the things u are and fly me to the moon midi files" />
     <MESSAGE value="consolidated everything into improvrnn" />
-    <option name="LAST_COMMIT_MESSAGE" value="consolidated everything into improvrnn" />
+    <MESSAGE value="test generate music done" />
+    <MESSAGE value="added chord pitches bundle file for testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="added chord pitches bundle file for testing" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/create_playlist.py">
@@ -210,9 +247,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/improv_rnn/main_files/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/improv_rnn/main_files/jazz_alexa.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="461">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -221,10 +262,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/improv_rnn/generate_music.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="69" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
+        <state relative-caret-position="170">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/improv_rnn/jazz_alexa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

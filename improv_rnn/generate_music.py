@@ -6,7 +6,7 @@ with open('song_chords.pkl','rb') as f:
     song_chords=pickle.load(f)
 with open('song_midis.pkl','rb') as f:
     song_midis=pickle.load(f)
-def improv_rnn_generate(songname,filepath):
+def generate_real(songname,filepath):
 
     subprocess.call(['improv_rnn_generate','--config=chord_pitches_improv',
                      '--run_dir=/Users/cooperbosch/Desktop/localjazzmodel/run_dir_new',
