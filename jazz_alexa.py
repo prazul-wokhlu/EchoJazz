@@ -58,7 +58,6 @@ def add_intent():
     #takes picture to return name, descriptor
     name, desc = main(database)
     path = './playlists/{}/'.format(name)
-    ###update- song_folder=generate jazz
     play_audio(midi_file)
 ###STOPPED HERE
     if "Unknown" not in name:
@@ -77,7 +76,7 @@ def add_intent():
 @ask.intent("YesIntent")
 def yes_intent():
     global dbname
-    global song_folder
+    global midi_file
     path = './playlist/{}/'.format(dbname)
     # add numbered folder with midi in playlist
     add_to_pl(path, midi_file)
@@ -114,9 +113,8 @@ def play_intent(name, song_number):
 
 
 @ask.intent("DisplayIntent")
-def display_intent(playlist, song_number):
-    global dbname
-    path = './playlists/{}/'.format(dbname)
+def display_intent(name, song_number):
+    path = './playlists/{}/'.format(name)
     allmidis = os.listdir(path)
     with open(path + '{}'.format(allmidis[song_number-1]), mode="rb") as f:
         c = converter.parse(f)
