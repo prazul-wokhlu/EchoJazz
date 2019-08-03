@@ -1,0 +1,28 @@
+import subprocess
+import pickle
+
+num_choruses = 2
+with open('song_chords.pkl','rb') as f:
+    song_chords=pickle.load(f)
+with open('song_midis.pkl','rb') as f:
+    song_midis=pickle.load(f)
+def improv_rnn_generate(songname,filepath):
+
+    subprocess.call(['improv_rnn_generate','--config=chord_pitches_improv',
+                     '--run_dir=/Users/cooperbosch/Desktop/localjazzmodel/run_dir_new',
+                     '--output_dir={}'.format(filepath),
+                     '--num_outputs=1','--primer_midi={}'.format(song_midis[songname]),
+                     '--backing_chords={}'.format(song_chords[songname]*num_choruses), '--render_chords' 
+                     '--hparams="batch_size=128,rnn_layer_sizes=[128,128]"'])
+
+
+    #/Users/cooperbosch/Desktop/localjazzmodel/output
+# improv_rnn_generate \
+# --config=chord_pitches_improv \
+# --run_dir=/Users/cooperbosch/Desktop/localjazzmodel/run_dir_new \
+# --output_dir=/Users/cooperbosch/Desktop/localjazzmodel/output \
+# --num_outputs=5 \
+# --primer_midi \
+# --backing_chords= \
+# --render_chords \
+# --hparams="batch_size=128,rnn_layer_sizes=[128,128]"
