@@ -47,7 +47,7 @@ def add_intent():
     #takes picture to return name, descriptor
     name, desc = main(database)
     path = './playlists/{}/'.format(name)
-    play_music(midi_file)
+    #play_music(midi_file)
 ###STOPPED HERE
     if "Unknown" not in name:
         face_msg = 'Hello {}'.format(name)
@@ -97,7 +97,7 @@ def play_intent(name, number):
     path = './playlists/{}/'.format(name)
     allmidis=os.listdir(path)
     with open(path+'{}'.format(allmidis[number-1]),mode="rb") as f:
-        play_audio(f)
+        play_music(f)
     return question("Would you like to do anything else?")
 
 
