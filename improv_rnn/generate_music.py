@@ -16,13 +16,13 @@ def improv_rnn_generate(songname,filepath):
                      '--hparams="batch_size=128,rnn_layer_sizes=[128,128]"'])
 
 
-    #/Users/cooperbosch/Desktop/localjazzmodel/output
-# improv_rnn_generate \
-# --config=chord_pitches_improv \
-# --run_dir=/Users/cooperbosch/Desktop/localjazzmodel/run_dir_new \
-# --output_dir=/Users/cooperbosch/Desktop/localjazzmodel/output \
-# --num_outputs=5 \
-# --primer_midi \
-# --backing_chords= \
-# --render_chords \
-# --hparams="batch_size=128,rnn_layer_sizes=[128,128]"
+
+def generate_test(songname,filepath):
+    subprocess.call(['improv_rnn_generate', ''--config=chord_pitches  \
+--bundle_file=${BUNDLE_PATH} \
+--output_dir=/tmp/improv_rnn/generated \
+--num_outputs=10 \
+--primer_melody="[60]" \
+--backing_chords="C G Am F C G Am F" \
+--render_chords])
+
