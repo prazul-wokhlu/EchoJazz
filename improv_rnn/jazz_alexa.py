@@ -118,11 +118,11 @@ def no_intent():
 
 @ask.intent("ImprovIntent")
 def improv_intent(name):
-    path = './playlists/{}/'.format(name)
+    path = r'C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\improvised_song\{}'.format(name)
     generate_test(name, path)
 
-    with open(path+'{}'.format(allmidis[song_number-1]),mode="rb") as f:
-        play_audio(f)
+    all_improv = os.listdir(path)
+    play_audio(all_improv[len(all_improv)-1])
     return question("Would you like to do anything else?")
 
 
