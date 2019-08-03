@@ -12,14 +12,14 @@ def generate_real(songname,filepath):
                      '--run_dir=/Users/cooperbosch/Desktop/localjazzmodel/run_dir_new',
                      '--output_dir={}'.format(filepath),
                      '--num_outputs=1','--primer_midi={}'.format(song_midis[songname]),
-                     '--backing_chords={}'.format(song_chords[songname]*num_choruses), '--render_chords' 
+                     '--backing_chords={}'.format(song_chords[songname]*num_choruses), '--render_chords'
                      '--hparams="batch_size=128,rnn_layer_sizes=[128,128]"'])
 
 
 
 def generate_test(songname,filepath):
-    subprocess.call(['improv_rnn_generate', '--config=chord_pitches',
-                     r'--bundle_file=C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\chord_pitches_improv.mag',
+    arr=['improv_rnn_generate', '--config=chord_pitches',
+                     r'--bundle_file=./chord_pitches_improv.mag',
                      '--output_dir={}'.format(filepath), '--num_outputs=1', '--primer_midi={}'.format(song_midis[songname]),
-                     '--backing_chords={}'.format(song_chords[songname]*num_choruses), '--render_chords'])
-
+                     '--backing_chords={}'.format(song_chords[songname]*num_choruses), '--render_chords']
+    subprocess.call(arr)

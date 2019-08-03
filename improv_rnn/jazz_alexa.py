@@ -10,7 +10,7 @@ from main_copy import main
 import portfolio_methods_copy as portfolio
 from music21 import *
 #from midi2audio import FluidSynth
-from midi import play_audio
+from midi import play_music
 from create_playlist import create_pl, add_to_pl
 import subprocess
 import os.path
@@ -32,7 +32,7 @@ def homepage():
 
 @ask.launch
 def start_skill():
-    welcome_message = 'Hi! Would you like to generate or play a song?'
+    welcome_message = 'Hi! Would you like to generate, play, or display a song?'
     download_model()
     download_predictor()
     load_dlib_models()
@@ -101,10 +101,10 @@ def play_intent(name, song_number):
 
 
 @ask.intent("DisplayIntent")
-def display_intent(name, song_number):
+def display_intent(name, number):
     path = './playlists/{}/'.format(name)
     allmidis = os.listdir(path)
-    with open(path + '{}'.format(allmidis[song_number-1]), mode="rb") as f:
+    with open(path + '{}'.format(allmidis[number-1]), mode="rb") as f:
         c = converter.parse(f)
         c.show('musicxml.png')
     return question("Would you like to do anything else?")
@@ -117,17 +117,17 @@ def no_intent():
     return statement(bye_text)
 
 @ask.intent("ImprovIntent")
-def improv_intent(name):
-    path = r'C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\improvised_song\{}'.format(name)
-    generate_test(name, path)
+def improv_intent(songname):
+    #path = r'C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\improvised_song\{}'.format(name)
+    path = r'./improvised_song/{}/'.format(songname)
+
+    generate_test(songname, path)
 
     all_improv = os.listdir(path)
     play_audio(all_improv[len(all_improv)-1])
-    return question("Would you like to do anything else?")
+    return question("Would you like to navigate to your playlist? Say 'add'")
 
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
