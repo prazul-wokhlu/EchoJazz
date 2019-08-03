@@ -32,7 +32,7 @@ with open("playlist_names.pkl", mode="rb") as opened_file:
     database = pickle.load(opened_file)
 desc=None
 dbName=None
-#set file to variable midi file
+#generate song, set to variable midi file
 midi_file=None
 
 
