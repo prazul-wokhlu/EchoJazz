@@ -16,13 +16,14 @@ import subprocess
 import os.path
 from generate_music import *
 from threading import Thread
-
+import random
 with open("playlist_names.pkl", mode="rb") as opened_file:
     database = pickle.load(opened_file)
 desc=None
 dbName=None
 #generate song, set to variable midi file
 generatedsong_filepath=None
+gangang = None
 
 
 
@@ -33,7 +34,7 @@ def homepage():
 
 @ask.launch
 def start_skill():
-    welcome_message = 'Hi! Would you like to generate or play a song?'
+    welcome_message = 'Hi! Would you like to generate, play, or display a song?'
     download_model()
     download_predictor()
     load_dlib_models()
@@ -65,10 +66,10 @@ def add_intent():
 @ask.intent("YesIntent")
 def yes_intent():
     global dbname
-    global generatedsong_filepath
-    path = './playlist/{}/'.format(dbname)
+    global gangang
+    path = './playlists/{}/'.format(dbname)
     # add numbered folder with midi in playlist
-    add_to_pl(path, generatedsong_filepath)
+    add_to_pl(generatedsong_filepath,path, gangang)
     return question(dbname+", your song has been added. Would you like to do anything else?")
 
 
@@ -90,49 +91,80 @@ def assign_name(name,uk,german,cogworks):
     #print(name,uk,german,cogworks)
     database = portfolio.create_profile(desc, dbname, database)
     face_msg = 'Hello {}'.format(dbname)
+    path = './playlists/{}/'.format(dbname)
+    if not os.path.exists(path):
+        create_pl(path)
     return question(face_msg + ". Do you want to add the song to your playlist?")
 
 @ask.intent("PlayIntent")
-def play_intent(name, song_number):
-    path = './playlists/{}/'.format(name)
+def play_intent(name, uk, german, cogworks, number):
+    global dbname
+    if name is not None:
+        dbname=name
+    elif cogworks is not None:
+        dbname=cogworks
+    elif uk is not None:
+        dbname=uk
+    elif german is not None:
+        dbname=german
+    path = './playlists/{}/'.format(dbname)
     allmidis=os.listdir(path)
-    with open(path+'{}'.format(allmidis[song_number-1]),mode="rb") as f:
+    if number is None:
+        number=random.randint(1,len(allmidis))
+    else:
+        number=int(number)
+    with open(path+'{}'.format(allmidis[number-1]),mode="rb") as f:
         play_music(f)
     return question("Would you like to do anything else?")
 
 
 @ask.intent("DisplayIntent")
-def display_intent(name, song_number):
-    path = './playlists/{}/'.format(name)
+def display_intent(name, uk, german, cogworks, number):
+    global dbname
+    if name is not None:
+        dbname=name
+    elif cogworks is not None:
+        dbname=cogworks
+    elif uk is not None:
+        dbname=uk
+    elif german is not None:
+        dbname=german
+
+    if number is None:
+        number=random.randint(1,len(allmidis))
+    else:
+        number=int(number)
+    path = './playlists/{}/'.format(dbname)
     allmidis = os.listdir(path)
-    with open(path + '{}'.format(allmidis[song_number-1]), mode="rb") as f:
-        c = converter.parse(f)
-        c.show('musicxml.png')
+    with open(path + '{}'.format(allmidis[number-1]), mode="rb") as f:
+        c = converter.parse(f.read())
+        #c.show('musicxml.png')
+        c.show()
     return question("Would you like to do anything else?")
 
 @ask.intent("NoIntent")
 def no_intent():
     bye_text = 'Okay, goodbye'
-    with open("playlist_names.pkl", mode="rb") as opened_file:
+    with open("playlist_names.pkl", mode="wb") as opened_file:
         pickle.dump(database, opened_file)
     return statement(bye_text)
 
 @ask.intent("ImprovIntent")
 def improv_intent(songname):
     global generatedsong_filepath
+    global gangang
     #path = r'C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\improvised_song\{}'.format(name)
     path = r'./improvised_song/{}/'.format(songname.lower())
 
     generate_test(songname, path)
 
     all_improv = os.listdir(path)
-    generatedsong_filepath=path+all_improv[len(all_improv)-1]
-    play_music(generatedsong_filepath)
+    gangang = all_improv[len(all_improv)-1]
+    generatedsong_filepath=path
+    play_music(generatedsong_filepath+gangang)
     return question("Would you like to navigate to your playlist? Say 'add'")
 
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-

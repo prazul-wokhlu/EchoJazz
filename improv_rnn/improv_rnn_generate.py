@@ -168,6 +168,7 @@ def run_with_flags(generator):
     primer_melody = magenta.music.Melody([60])
     primer_sequence = primer_melody.to_sequence(qpm=qpm)
 
+    qpm *= 4
   # Create backing chord progression from flags.
   raw_chords = FLAGS.backing_chords.split()
   repeated_chords = [chord for chord in raw_chords
@@ -176,7 +177,8 @@ def run_with_flags(generator):
 
   # Derive the total number of seconds to generate based on the QPM of the
   # priming sequence and the length of the backing chord progression.
-  seconds_per_step = 60.0 / qpm / generator.steps_per_quarter
+
+  seconds_per_step = 60 / qpm / generator.steps_per_quarter
   total_seconds = len(backing_chords) * seconds_per_step
 
   # Specify start/stop time for generation based on starting generation at the
