@@ -26,7 +26,7 @@ def generate_test(songname,filepath):
     if not path.exists(filepath):
         os.mkdir(filepath)
     arr=['python3','improv_rnn_generate.py', '--config=chord_pitches_improv',
-                     r'--bundle_file=./chord_pitches_improv.mag',
+                     r'--bundle_file=./batchfile.mag',
                      '--output_dir={}'.format(filepath), '--num_outputs=1', '--primer_midi={}'.format(song_midis[songname]),
                      '--backing_chords={}'.format((song_chords[songname]+' ')*num_choruses), '--render_chords']
     arr2=['python3','improv_rnn_generate.py', '--config=chord_pitches_improv',
