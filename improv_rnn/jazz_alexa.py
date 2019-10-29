@@ -130,6 +130,9 @@ def display_intent(name, uk, german, cogworks, number):
     elif german is not None:
         dbname=german
 
+    if name is None and uk is None and german is None and cogworks is None:
+        return
+
     if number is None:
         number=random.randint(1,len(allmidis))
     else:
