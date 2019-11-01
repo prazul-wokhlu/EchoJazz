@@ -7,13 +7,18 @@ with open('song_chords.pkl','rb') as f:
     song_chords=pickle.load(f)
 with open('song_midis.pkl','rb') as f:
     song_midis=pickle.load(f)
+
+song_midis =  {k.lower(): v for k, v in song_midis.items()}
+song_chords =  {k.lower(): v for k, v in song_chords.items()}
+print(song_midis)
+print(song_chords)
 def generate_real(songname,filepath):
 
     subprocess.call(['improv_rnn_generate','--config=chord_pitches_improv',
                      '--run_dir=/Users/cooperbosch/Desktop/localjazzmodel/run_dir_new',
                      '--output_dir={}'.format(filepath),
-                     '--num_outputs=1','--primer_midi={}'.format(song_midis[songname]),
-                     '--backing_chords={}'.format(song_chords[songname]*num_choruses), '--render_chords'
+                     '--num_outputs=1','--primer_midi={}'.format(song_midis[songname.lower]),
+                     '--backing_chords={}'.format(song_chords[songname.lower]*num_choruses), '--render_chords'
                      '--hparams="batch_size=128,rnn_layer_sizes=[128,128]"'])
 
 

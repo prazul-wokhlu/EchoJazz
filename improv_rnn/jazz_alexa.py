@@ -4,7 +4,7 @@ from flask import Flask
 from flask_ask import Ask, statement, question
 from flask_ask.models import _Response
 app = Flask(__name__)
-ask = Ask(app, '/')
+ask = Ask(app, '/improv')
 from dlib_models import download_model, download_predictor, load_dlib_models
 from main_copy import main
 import portfolio_methods_copy as portfolio
@@ -159,7 +159,7 @@ def improv_intent(songname):
     #path = r'C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\improvised_song\{}'.format(name)
     path = r'./improvised_song/{}/'.format(songname.lower())
 
-    generate_test(songname, path)
+    generate_test(songname.lower(), path)
 
     all_improv = os.listdir(path)
     gangang = all_improv[len(all_improv)-1]

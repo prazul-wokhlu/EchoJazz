@@ -30,8 +30,12 @@
   </component>
   <component name="ProjectId" id="1SDQYpoUfXKs8OSS2ihRoI5ww4x" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/improv_rnn" />
       <recent name="C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn\main_files" />
       <recent name="C:\Users\prazu\prazul\Cog_Week4\JazzImprov\improv_rnn" />
     </key>
@@ -143,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564848816889</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="changed generate_test">
+      <created>1572369894990</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1572369894990</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
